@@ -7,7 +7,8 @@ ENV DOCKER_VERSION=17.12.1 \
     
 USER root
 
-RUN apt-get update \
+RUN apt-get update -qy \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -qy python-pip groff-base sudo \
  && apt-get install -y --no-install-recommends apt-transport-https ca-certificates software-properties-common acl \
  && curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
  && add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
