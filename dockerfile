@@ -18,9 +18,3 @@ RUN apt-get update \
  && pip install j2cli \
  && curl -L -o /usr/bin/clair-scanner https://github.com/arminc/clair-scanner/releases/download/$CLAIR_SCANNER_VERSION/clair-scanner_linux_amd64 \
  && chmod 777 /usr/bin/clair-scanner
-
-COPY ini/settings.xml.j2 /tmp/settings.xml.j2
-COPY scripts/scan_catalog_entry.sh docker-entrypoint-dind.sh /
-
-ENTRYPOINT ["/docker-entrypoint-dind.sh"]
-CMD ["java", "-jar", "/bin/swarm-client.jar"]
