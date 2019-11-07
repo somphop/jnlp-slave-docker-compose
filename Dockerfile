@@ -4,6 +4,8 @@ ENV DOCKER_VERSION=17.12.1 \
     DOCKER_COMPOSE_VERSION=1.24.0 \
     DOCKER_COMPOSE_MD5=df94d0cee88e15ab28fb95b0b2204f99 \
     CLAIR_SCANNER_VERSION=v8
+    
+USER root
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends apt-transport-https ca-certificates software-properties-common acl \
